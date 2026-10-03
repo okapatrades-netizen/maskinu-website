@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>MASK INU | $MASKINU</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #050505;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    nav {
+      width: 100%;
+      padding: 25px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: absolute;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: #ff7a00;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      color: #aaa;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .buy-small {
+      background: #ff7a00;
+      color: #000 !important;
+      padding: 12px 20px;
+      border-radius: 30px;
+    }
+
+    .hero {
+      min-height: 100vh;
+      padding: 130px 7% 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+      overflow: hidden;
+    }
+
+    .hero-text {
+      width: 50%;
+      z-index: 2;
+    }
+
+    .tag {
+      display: inline-block;
+      color: #ff9b42;
+      border: 1px solid #ff7a00;
+      padding: 8px 14px;
+      border-radius: 30px;
+      margin-bottom: 25px;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    h1 {
+      font-size: clamp(55px, 8vw, 120px);
+      line-height: 0.88;
+      font-weight: 900;
+      letter-spacing: -5px;
+    }
+
+    h1 span {
+      color: #ff7a00;
+    }
+
+    .hero-text p {
+      color: #aaa;
+      font-size: 19px;
+      line-height: 1.6;
+      max-width: 570px;
+      margin: 30px 0;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 16px 28px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 900;
+    }
+
+    .button-primary {
+      background: #ff7a00;
+      color: black;
+    }
+
+    .button-secondary {
+      border: 1px solid #555;
+      color: white;
+    }
+
+    .hero-image {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      position: relative;
+    }
+
+    .glow {
+      position: absolute;
+      width: 70%;
+      height: 70%;
+      border-radius: 50%;
+      background: #ff7a00;
+      filter: blur(120px);
+      opacity: 0.18;
+      top: 15%;
+    }
+
+    .hero-image img {
+      width: min(100%, 650px);
+      position: relative;
+      z-index: 2;
+      border-radius: 35px;
+    }
+
+    .stats {
+      border-top: 1px solid #222;
+      border-bottom: 1px solid #222;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      text-align: center;
+      background: #080808;
+    }
+
+    .stat {
+      padding: 35px 20px;
+      border-right: 1px solid #222;
+    }
+
+    .stat:last-child {
+      border-right: none;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 22px;
+      color: #ff7a00;
+      margin-bottom: 7px;
+    }
+
+    .stat span {
+      color: #777;
+      font-size: 13px;
+      letter-spacing: 2px;
+    }
+
+    .connection {
+      padding: 120px 7%;
+      text-align: center;
+    }
+
+    .connection h2 {
+      font-size: clamp(40px, 6vw, 80px);
+      margin-bottom: 20px;
+    }
+
+    .connection h2 span {
+      color: #ff7a00;
+    }
+
+    .connection > p {
+      color: #888;
+      max-width: 650px;
+      margin: auto;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .flow {
+      max-width: 1000px;
+      margin: 70px auto 0;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .flow-box {
+      padding: 30px 15px;
+      background: #0d0d0d;
+      border: 1px solid #242424;
+      border-radius: 20px;
+    }
+
+    .flow-box strong {
+      display: block;
+      color: #ff7a00;
+      font-size: 19px;
+      margin-bottom: 8px;
+    }
+
+    .flow-box span {
+      color: #777;
+      font-size: 13px;
+    }
+
+    .arrow {
+      color: #ff7a00;
+      font-size: 28px;
+    }
+
+    footer {
+      border-top: 1px solid #222;
+      padding: 35px 7%;
+      color: #666;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @media (max-width: 800px) {
+      nav {
+        position: relative;
+      }
+
+      .nav-links a:not(.buy-small) {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 50px;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-text,
+      .hero-image {
+        width: 100%;
+      }
+
+      h1 {
+        letter-spacing: -3px;
+      }
+
+      .hero-text p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .buttons {
+        justify-content: center;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .stat {
+        border-right: none;
+        border-bottom: 1px solid #222;
+      }
+
+      .flow {
+        grid-template-columns: 1fr;
+      }
+
+      .arrow {
+        transform: rotate(90deg);
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="logo">MASK <span>INU</span></div>
+
+    <div class="nav-links">
+      <a href="#connection">About</a>
+      <a href="#connection">Fees</a>
+      <a href="#connection">How It Works</a>
+      <a class="buy-small" href="#">BUY $MASKINU</a>
+    </div>
+  </nav>
+
+  <main class="hero">
+
+    <div class="hero-text">
+
+      <div class="tag">SOLANA • $MASKINU</div>
+
+      <h1>
+        THE INU<br>
+        BEHIND THE <span>MASK.</span>
+      </h1>
+
+      <p>
+        MASK INU is a community-driven Solana memecoin built around
+        the MASK ecosystem. Wear the mask. Join the pack.
+      </p>
+
+      <div class="buttons">
+        <a class="button button-primary" href="#">BUY $MASKINU</a>
+        <a class="button button-secondary" href="#">VIEW CHART</a>
+      </div>
+
+    </div>
+
+    <div class="hero-image">
+      <div class="glow"></div>
+      <img src="public/maskinu.png" alt="MASK INU">
+    </div>
+
+  </main>
+
+  <section class="stats">
+
+    <div class="stat">
+      <strong>SOLANA</strong>
+      <span>NETWORK</span>
+    </div>
+
+    <div class="stat">
+      <strong>$MASKINU</strong>
+      <span>TICKER</span>
+    </div>
+
+    <div class="stat">
+      <strong>COMMUNITY</strong>
+      <span>POWERED</span>
+    </div>
+
+  </section>
+
+  <section class="connection" id="connection">
+
+    <h2>THE MASK <span>CONNECTION</span></h2>
+
+    <p>
+      MASK INU is built around a connection to the MASK ecosystem.
+      Full fee mechanics and on-chain data will be displayed here.
+    </p>
+
+    <div class="flow">
+
+      <div class="flow-box">
+        <strong>MASK</strong>
+        <span>ECOSYSTEM</span>
+      </div>
+
+      <div class="arrow">→</div>
+
+      <div class="flow-box">
+        <strong>FEES</strong>
+        <span>GENERATED</span>
+      </div>
+
+      <div class="arrow">→</div>
+
+      <div class="flow-box">
+        <strong>MASKINU</strong>
+        <span>ECOSYSTEM</span>
+      </div>
+
+      <div class="arrow">→</div>
+
+      <div class="flow-box">
+        <strong>HOLDERS</strong>
+        <span>COMMUNITY</span>
+      </div>
+
+    </div>
+
+  </section>
+
+  <footer>
+    <strong>MASK INU</strong>
+    <span>$MASKINU • SOLANA</span>
+  </footer>
+
+</body>
+</html>
